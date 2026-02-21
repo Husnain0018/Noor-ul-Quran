@@ -1,5 +1,6 @@
 import { ArrowRight, Settings, ChevronRight, BookOpen, Star, Bookmark, Headphones } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const stats = [
   { icon: BookOpen, label: "Surahs", value: "114" },
@@ -9,6 +10,7 @@ const stats = [
 ];
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="py-12 md:py-16">
       <div className="container mx-auto px-4">
@@ -28,13 +30,13 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-wrap gap-3 mb-10">
-            <Button variant="hero" size="lg" className="gap-2">
+            <Button variant="hero" size="lg" className="gap-2" onClick={() => navigate("/quran")}>
               Open Quran <ArrowRight className="w-4 h-4" />
             </Button>
             <Button variant="heroOutline" size="lg" className="gap-2">
               <Settings className="w-4 h-4" /> Quran Settings
             </Button>
-            <Button variant="heroOutline" size="lg" className="gap-2">
+            <Button variant="heroOutline" size="lg" className="gap-2" onClick={() => navigate("/quran")}>
               Read Quran Online <ChevronRight className="w-4 h-4" />
             </Button>
           </div>

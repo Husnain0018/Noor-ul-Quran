@@ -1,6 +1,8 @@
-import { BookOpen, Home, Info, Settings, LogIn, Moon, Sun, Menu, X } from "lucide-react";
+import { BookOpen, Home, Info, Settings, LogIn, LogOut, Moon, Sun, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 
 const navItems = [
   { label: "Home", icon: Home, sectionId: "hero" },
@@ -13,6 +15,8 @@ const Navbar = () => {
   const [isDark, setIsDark] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const saved = localStorage.getItem("theme");
@@ -66,10 +70,17 @@ const Navbar = () => {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button variant="heroOutline" size="sm" className="gap-1.5 hidden sm:inline-flex">
-            <LogIn className="w-4 h-4" />
-            Sign In
-          </Button>
+          {user ? (
+            <Button variant="heroOutline" size="sm" className="gap-1.5 hidden sm:inline-flex" onClick={signOut}>
+              <LogOut className="w-4 h-4" />
+              Sign Out
+            </Button>
+          ) : (
+            <Button variant="heroOutline" size="sm" className="gap-1.5 hidden sm:inline-flex" onClick={() => navigate("/auth")}>
+              <LogIn className="w-4 h-4" />
+              Sign In
+            </Button>
+          )}
           <button
             onClick={toggleDark}
             className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:bg-secondary transition-colors"
@@ -87,7 +98,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-md">
           <nav className="container mx-auto px-4 py-3 flex flex-col gap-1">
@@ -105,10 +115,17 @@ const Navbar = () => {
                 {item.label}
               </button>
             ))}
-            <Button variant="heroOutline" size="sm" className="gap-1.5 mt-2 sm:hidden">
-              <LogIn className="w-4 h-4" />
-              Sign In
-            </Button>
+            {user ? (
+              <Button variant="heroOutline" size="sm" className="gap-1.5 mt-2 sm:hidden" onClick={signOut}>
+                <LogOut className="w-4 h-4" />
+                Sign Out
+              </Button>
+            ) : (
+              <Button variant="heroOutline" size="sm" className="gap-1.5 mt-2 sm:hidden" onClick={() => { setMobileOpen(false); navigate("/auth"); }}>
+                <LogIn className="w-4 h-4" />
+                Sign In
+              </Button>
+            )}
           </nav>
         </div>
       )}

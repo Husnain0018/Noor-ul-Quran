@@ -58,7 +58,7 @@ const AuthPage = () => {
               <BookOpen className="w-4 h-4 text-primary-foreground" />
             </div>
             <span className="font-semibold text-lg text-foreground" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Al-Quran
+              Noor-ul-Quran
             </span>
           </div>
           <h1 className="text-2xl font-bold text-foreground" style={{ fontFamily: "'Playfair Display', serif" }}>

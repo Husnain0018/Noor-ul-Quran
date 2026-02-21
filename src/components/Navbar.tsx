@@ -48,7 +48,7 @@ const Navbar = () => {
             <BookOpen className="w-4 h-4 text-primary-foreground" />
           </div>
           <span className="font-semibold text-lg text-foreground" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Al-Quran
+            Noor-ul-Quran
           </span>
         </div>
 

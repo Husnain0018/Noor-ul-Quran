@@ -9,11 +9,11 @@ const Footer = () => {
             <BookOpen className="w-3 h-3 text-primary-foreground" />
           </div>
           <span className="font-semibold text-foreground" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Al-Quran
+            Noor-ul-Quran
           </span>
         </div>
         <p className="text-sm text-muted-foreground">
-          Read Quran online with focus and consistency. Built for daily recitation.
+          Read Quran online with focus and consistency. created by Ali Husnain.
         </p>
       </div>
     </footer>

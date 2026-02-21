@@ -43,7 +43,7 @@ const QuranPage = () => {
           <Link to="/"><Button variant="ghost" size="icon"><ArrowLeft className="w-5 h-5" /></Button></Link>
           <div className="flex items-center gap-2">
             <BookOpen className="w-5 h-5 text-primary" />
-            <span className="font-semibold text-lg text-foreground" style={{ fontFamily: "'Playfair Display', serif" }}>Al-Quran</span>
+            <span className="font-semibold text-lg text-foreground" style={{ fontFamily: "'Playfair Display', serif" }}>Noor-ul-Quran</span>
           </div>
         </div>
       </header>
